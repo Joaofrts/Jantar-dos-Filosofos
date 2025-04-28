@@ -13,6 +13,7 @@ O objetivo é implementar uma solução utilizando Java para simular os filósof
 - **Java**: Para implementar a solução utilizando threads e sincronização.
 - **Threads**: Utilizadas para simular os filósofos como processos concorrentes.
 - **`synchronized`**: Usado para garantir que apenas um filósofo possa pegar um garfo de cada vez.
+- **`Thread.currentThread().interrupt()`**: Para interromper as threads dos filósofos de maneira controlada.
 
 ## 🛠 Estrutura do Projeto
 
@@ -34,17 +35,3 @@ O processo de jantar dos filósofos segue os seguintes passos:
 4. **Soltar Garfos**: Após terminar de comer, o filósofo solta os garfos e o processo se repete.
 
 A implementação assegura que os filósofos alternem entre pensar e comer, sem causar deadlock ou starvation, utilizando uma abordagem simples de sincronização.
-
-## 📊 Relatório
-
-Ao final da execução, é exibido um relatório contendo:
-
-- **Quantas vezes cada filósofo comeu.**
-- **Tempo total comendo.**
-- **Tempo total esperando para pegar os garfos.**
-
-## 🏃‍♂️ Como Rodar
-
-1. Clone este repositório para sua máquina local:
-   ```bash
-   git clone https://github.com/seu-usuario/desafio-filósofos-jantando.git
