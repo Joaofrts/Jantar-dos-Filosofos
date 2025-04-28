@@ -1,18 +1,50 @@
-## Getting Started
+# Desafio dos Filósofos Jantando - Solução em Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## 📚 Sobre o Desafio
 
-## Folder Structure
+O **Problema dos Filósofos Jantando** é um clássico problema de sincronização e concorrência em sistemas com múltiplas threads. Este problema envolve um número fixo de filósofos sentados ao redor de uma mesa. Cada filósofo precisa de dois garfos para comer, mas cada garfo está compartilhado entre dois filósofos. O desafio é garantir que todos os filósofos possam comer sem entrar em um estado de deadlock ou starvation.
 
-The workspace contains two folders by default, where:
+## 🚀 Objetivo
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O objetivo é implementar uma solução utilizando Java para simular os filósofos jantando, garantindo que eles possam alternar entre pensar e comer, e que a sincronização dos garfos seja feita corretamente para evitar problemas de concorrência como o deadlock.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## 🔧 Tecnologias Utilizadas
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Java**: Para implementar a solução utilizando threads e sincronização.
+- **Threads**: Utilizadas para simular os filósofos como processos concorrentes.
+- **`synchronized`**: Usado para garantir que apenas um filósofo possa pegar um garfo de cada vez.
 
-## Dependency Management
+## 🛠 Estrutura do Projeto
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+O projeto é composto por três classes principais:
+
+1. **Garfo**: Representa um garfo que os filósofos usam para comer. Cada garfo é compartilhado entre dois filósofos e é protegido por um bloqueio para garantir que um filósofo não tente pegar o garfo enquanto outro já o estiver usando.
+
+2. **Filosofo**: Representa um filósofo. Cada filósofo pode pensar, comer e pegar garfos. A implementação utiliza threads, onde cada filósofo é uma thread executando continuamente em busca de comer.
+
+3. **JantarDosFilosofos**: Controla o ciclo de vida dos filósofos e dos garfos. Inicializa os filósofos, faz com que eles comecem a pensar e comer, e gera um relatório com o número de vezes que cada filósofo comeu, o tempo gasto comendo e o tempo esperando pelos garfos.
+
+## 📝 Como Funciona?
+
+O processo de jantar dos filósofos segue os seguintes passos:
+
+1. **Pensamento**: Cada filósofo passa um tempo pensando antes de tentar comer.
+2. **Pegar Garfos**: O filósofo precisa pegar os dois garfos (um à esquerda e outro à direita). A sincronização é garantida usando `synchronized`, o que impede que dois filósofos peguem o mesmo garfo ao mesmo tempo.
+3. **Comer**: Depois de pegar os dois garfos, o filósofo começa a comer.
+4. **Soltar Garfos**: Após terminar de comer, o filósofo solta os garfos e o processo se repete.
+
+A implementação assegura que os filósofos alternem entre pensar e comer, sem causar deadlock ou starvation, utilizando uma abordagem simples de sincronização.
+
+## 📊 Relatório
+
+Ao final da execução, é exibido um relatório contendo:
+
+- **Quantas vezes cada filósofo comeu.**
+- **Tempo total comendo.**
+- **Tempo total esperando para pegar os garfos.**
+
+## 🏃‍♂️ Como Rodar
+
+1. Clone este repositório para sua máquina local:
+   ```bash
+   git clone https://github.com/seu-usuario/desafio-filósofos-jantando.git
