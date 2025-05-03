@@ -14,7 +14,7 @@ class Filosofo extends Thread {
     }
 
     private void comer() throws InterruptedException {
-        System.out.println(getName() + " está comendo 🍝...");
+        System.out.println(getName() + " está comendo ...");
         Thread.sleep((long) (Math.random() * 1000)); // tempo aleatório
     }
 
